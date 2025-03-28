@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Form with CollatzSequence</h1>
+        <form action="/collatzsequence">
+            <label for="value">value:</label><br>
+            <input type="list" id="value" name="value" value="13"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsg()">
+        </form> 
+        <div id="getrespmsg"></div>
+
+        <script>
+            function loadGetMsg() {
+                let value = document.getElementById("value").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsg").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "proxy/collatzsequence?value="+value);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>
