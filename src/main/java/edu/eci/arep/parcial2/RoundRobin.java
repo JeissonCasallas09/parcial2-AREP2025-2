@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RoundRobin{
-    private final List<String> servers= Arrays.asList("http://localhost:8081/","http://localhost:8082/");
+    //private final List<String> servers= Arrays.asList("http://localhost:8081/","http://localhost:8082/");
+    private final List<String> servers= Arrays.asList("http://3.82.172.42:8080/","http://44.202.125.33:8080/");
     int currentIndex=0;
 
     public ResponseEntity<String> collatzsequence(int value){
